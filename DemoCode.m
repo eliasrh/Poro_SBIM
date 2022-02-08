@@ -3,6 +3,7 @@
 % Heimisson, Liu, Lapusta, Rudnicki (2022) titled: "Dilatancy and compaction of a rate-and-state fault in a poroelastic medium: Linearized stability analysis".
 % to be submitted to JGR Solid Earth.
 % If the code is used the this paper must be appropriate referenced. 
+% The code was primerily developed by Dr. Elias Rafn Heimisson with testing and optimization done by Shengduo Liu.
 
 % The code is self contained in a single script. It has been tested on MatlabR2019a and MatlabR2021a. 
 
