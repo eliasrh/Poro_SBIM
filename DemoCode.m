@@ -36,15 +36,15 @@
 %% Input parameters for simulations shown in the Application Section
 Drained_Poisson_Ratio = 0.24;
 Undrained_Poisson_Ratio = 0.35;
-Hydraulic_Diffusivity = 4.0e-7;
-Dilatancy_Coefficient = 0.0;
+Hydraulic_Diffusivity = 4.0e-8;
+Dilatancy_Coefficient = 0;
 
 % Start clock
 tstart = tic;
 
 % Terminating slip rate and simulating time
 Terminating_slip_rate = 1.0e-1;
-Terminating_time = 2500;
+Terminating_time = 2000;
 
 %% IMPORTNANT: TIME-STEPPING SCALING: frac
 fract = 4; % used in frac to scale time-steps You may want to pick a smaller value
@@ -66,7 +66,7 @@ rng(1); %set random seed
 %% FIGURE
 % the script plots some fault fields as it runs. This can be deactivated by
 % setting plotflag = 0
-plotflag = 0;
+plotflag = 1;
 
 if plotflag
     f1 = figure(1);
@@ -193,7 +193,7 @@ kappacx = 1.0e9 * kappac;
 % Computing mobility of host rock (dependent on c)
 alpB = 3*(nuu-nu)/(B*(1+nuu)*(1-2*nu));
 kappa = c/(2*G*(1+nu)*B/(3*alpB*(1-alpB*B)*(1-2*nu)));
-
+c = c*( (1-nu)*(1-2*nuu) )/( (1-nuu)*(1-2*nu) );
 % Shear zone half thickness, doesn't really matter in comparing to JMPS,
 % where the fault in completely impermeable
 epsi = 0.001;
@@ -759,7 +759,7 @@ for it = 2:NT
                 thetasave(:,runnerplot) = theta;
                 if plotflag == 1
                     f1 = figure(1);
-                    sgtitle(strcat('\epsilon = ',' ',num2str(epsi),' --- ','time =',' ',num2str(t/(24*60*60)),' ',' days'))
+                    sgtitle(strcat('\epsilon = ',' ',num2str(epsi),' --- ','time =',' ',num2str(t),' ',' s'))
                     subplot(3,2,1)
                     semilogy(x,V,'k-')
                     xlim([min(x) max(x)])
@@ -1007,7 +1007,6 @@ txtname = strcat('Nuu_', num2str(nuu), '_gamma_', num2str(gamma),...
 fileID = fopen(txtname, 'w');
 
 fprintf(fileID, '%25s', 'Filename: '); fprintf(fileID, filename);
-fprintf(fileID, '\n%25s', 'Injection Mass (Kg): '); fprintf(fileID, num2str(in_mass));
 fprintf(fileID, '\n%25s', 'NT: '); fprintf(fileID, num2str(NT));
 fprintf(fileID, '\n%25s', 'lhs, rhs: ');
 fprintf(fileID, strcat(num2str(lhs), ', ', num2str(rhs)));
