@@ -1,7 +1,10 @@
 %% README
 % This code contains the implementation fo the SBIM that is described in
-% Heimisson, Liu, Lapusta, Rudnicki (2022) titled: "Dilatancy and compaction of a rate-and-state fault in a poroelastic medium: Linearized stability analysis".
-% to be submitted to JGR Solid Earth.
+%Heimisson, E. R., Liu, S., Lapusta, N., & Rudnicki, J. (2022). A spectral boundary-integral 
+%method for faults and fractures in a poroelastic solid Simulations of a rate-and-state fault 
+%with dilatancy, compaction, and fluid injection. Journal of Geophysical Research: Solid Earth, 
+%127, e2022JB024185. https://doi.org/10.1029/2022JB024185
+
 % If the code is used the this paper must be appropriate referenced. 
 % The code was primerily developed by Dr. Elias Rafn Heimisson with testing and optimization done by Shengduo Liu.
 
